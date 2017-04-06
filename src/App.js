@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+import Goal from './Goal';
 
 class Counter extends Component {
 
@@ -123,6 +124,7 @@ class App extends Component {
                 <Counter count={this.state.count}/>
                 <Button onClick={() => this.handleIncrement()} title="INCREMENT"/>
                 <Button onClick={() => this.handleDecrement()} title="DECREMENT"/>
+                <Goal/>
             </div>
         )
     }
