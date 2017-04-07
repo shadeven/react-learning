@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
+import '../css/App.css';
 
 export default class CreateGoal extends Component {
 
