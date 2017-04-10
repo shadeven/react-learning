@@ -1,8 +1,33 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import CreateGoal from "./CreateGoal";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import 'react-bootstrap-table/css/react-bootstrap-table.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
+const CreateGoal = ({ goalName, descriptionName, onNameChange, onDescriptionChange, onClick}) => (
+  <div className="container">
+      <div className="col-md-6 col-md-offset-3">
+          <div className="form-area">
+              <form role="form">
+                  <h3>Create Goal</h3>
+                  <div className="form-group">
+                      <input type="text" className="form-control" id="name" name="name"
+                             placeholder="Goal Name" value={goalName}
+                             onChange={onNameChange}/>
+                  </div>
+                  <div className="form-group">
+                      <input type="text" className="form-control" id="description" name="description"
+                             placeholder="Description" value={descriptionName}
+                             onChange={onDescriptionChange}/>
+                  </div>
+                  <button type="button" id="submit" name="submit" className="btn btn-primary pull-right"
+                          onClick={onClick}>Submit
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+)
 
 export default class GoalContainer extends Component {
 
