@@ -1,33 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import 'react-bootstrap-table/css/react-bootstrap-table.css';
+import CreateGoal from './CreateGoal';
+import GoalList from './GoalList';
 import 'bootstrap/dist/css/bootstrap.css';
-
-const CreateGoal = ({ goalName, descriptionName, onNameChange, onDescriptionChange, onClick}) => (
-  <div className="container">
-      <div className="col-md-6 col-md-offset-3">
-          <div className="form-area">
-              <form role="form">
-                  <h3>Create Goal</h3>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="name" name="name"
-                             placeholder="Goal Name" value={goalName}
-                             onChange={onNameChange}/>
-                  </div>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="description" name="description"
-                             placeholder="Description" value={descriptionName}
-                             onChange={onDescriptionChange}/>
-                  </div>
-                  <button type="button" id="submit" name="submit" className="btn btn-primary pull-right"
-                          onClick={onClick}>Submit
-                  </button>
-              </form>
-          </div>
-      </div>
-  </div>
-)
 
 export default class GoalContainer extends Component {
 
@@ -82,6 +57,29 @@ export default class GoalContainer extends Component {
         })
     }
 
+    handleDelete(e) {
+        this.state.goals.splice(e.target.value[2], 1);
+        this.setState({
+          goals: this.state.goals
+        })
+
+        // axios.delete('http://127.0.0.1:8000/api/deleteGoalById', {
+        //     params: {
+        //       id: e.target.value[0]
+        //     }
+        // })
+        //   .then(response => {
+        //     console.log(response);
+        //     this.state.goals.splice(e.target.value[2], 1);
+        //     this.setState({
+        //       goals: this.state.goals
+        //     })
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   })
+    }
+
     render() {
         return (
             <div>
@@ -89,11 +87,7 @@ export default class GoalContainer extends Component {
                             onNameChange={(e) => this.handleNameChange(e)}
                             onDescriptionChange={(e) => this.handleDescriptionChange(e)}
                             onClick={(e) => this.handleClick(e)}/>
-                <BootstrapTable data={this.state.goals} striped hover condensed>
-                    <TableHeaderColumn dataField="id" width='5%' isKey={true}>ID</TableHeaderColumn>
-                    <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
-                    <TableHeaderColumn dataField="description">Description</TableHeaderColumn>
-                </BootstrapTable>
+                <GoalList goals={this.state.goals} onDelete={(e) => this.handleDelete(e)}/>
             </div>
         )
     }
