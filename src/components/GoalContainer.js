@@ -3,6 +3,7 @@ import axios from 'axios';
 import CreateGoal from './CreateGoal';
 import GoalList from './GoalList';
 import 'bootstrap/dist/css/bootstrap.css';
+import update from 'react-addons-update';
 
 export default class GoalContainer extends Component {
 
@@ -58,9 +59,8 @@ export default class GoalContainer extends Component {
     }
 
     handleDelete(e) {
-        this.state.goals.splice(e.target.value[2], 1);
         this.setState({
-          goals: this.state.goals
+            goals: update(this.state.goals, {$splice: [[e.target.value[2], 1]]})
         })
 
         // axios.delete('http://127.0.0.1:8000/api/deleteGoalById', {
