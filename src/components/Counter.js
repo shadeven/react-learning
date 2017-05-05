@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class Counter extends Component {
 
-    render() {
-        return (
-            <h1>{this.props.count}</h1>
-        )
-    }
+  render() {
+    return (
+      <h1>{this.props.count}</h1>
+    )
+  }
 }

@@ -16,16 +16,18 @@ export default class GoalList extends Component {
                 <th>Description</th>
                 <th>Action</th>
               </tr>
-                {this.props.goals.map((goal, index) => {
-                  return <tr key={goal.id}>
-                           <td>{index + 1}</td>
-                           <td>{goal.name}</td>
-                           <td>{goal.description}</td>
-                           <td>
-                             <button id={goal.id} value={index} className="btn btn-danger" onClick={this.props.onDelete}>Delete</button>
-                           </td>
-                         </tr>
-                })}
+              {this.props.goals.map((goal, index) => {
+                return <tr key={goal.id}>
+                  <td>{index + 1}</td>
+                  <td>{goal.name}</td>
+                  <td>{goal.description}</td>
+                  <td>
+                    <button id={goal.id} value={index} className="btn btn-danger btn-sm"
+                            onClick={this.props.onDelete}>Delete
+                    </button>
+                  </td>
+                </tr>
+              })}
               </tbody>
             </table>
           </div>
