@@ -14,7 +14,8 @@
     "react-datasheet": "^1.2.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.4",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

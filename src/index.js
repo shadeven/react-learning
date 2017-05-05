@@ -4,7 +4,6 @@ import './css/index.css';
 import App from "./App";
 import {createStore} from 'redux';
 import goalsApp from './reducers/reducers';
-import {getGoals} from './actions/actions';
 import {Provider} from 'react-redux';
 
 let store = createStore(goalsApp);

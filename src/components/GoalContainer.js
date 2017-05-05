@@ -4,6 +4,7 @@ import CreateGoal from './CreateGoal';
 import GoalList from './GoalList';
 import 'bootstrap/dist/css/bootstrap.css';
 import update from 'react-addons-update';
+import 'whatwg-fetch';
 
 export default class GoalContainer extends Component {
 
@@ -59,25 +60,19 @@ export default class GoalContainer extends Component {
     }
 
     handleDelete(e) {
-        this.setState({
-            goals: update(this.state.goals, {$splice: [[e.target.value[2], 1]]})
-        })
+        const index = e.target.value;
+        const id = e.target.id;
 
-        // axios.delete('http://127.0.0.1:8000/api/deleteGoalById', {
-        //     params: {
-        //       id: e.target.value[0]
-        //     }
-        // })
-        //   .then(response => {
-        //     console.log(response);
-        //     this.state.goals.splice(e.target.value[2], 1);
-        //     this.setState({
-        //       goals: this.state.goals
-        //     })
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   })
+        fetch('http://127.0.0.1:8000/api/deleteGoalById/' + id, {
+            method: 'delete'
+        }).then(response => {
+            console.log(response);
+            this.setState({
+              goals: update(this.state.goals, {$splice: [[index, 1]]})
+            })
+        }).catch((error) => {
+          console.log(error);
+        })
     }
 
     render() {
@@ -92,3 +87,4 @@ export default class GoalContainer extends Component {
         )
     }
 }
+
