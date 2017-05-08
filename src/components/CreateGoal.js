@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/App.css';
+import PropTypes from 'prop-types';
 
 export default class CreateGoal extends Component {
 
@@ -30,4 +31,12 @@ export default class CreateGoal extends Component {
       </div>
     )
   }
+}
+
+CreateGoal.propTypes = {
+  goalName: PropTypes.string,
+  onNameChange: PropTypes.func,
+  descriptionName: PropTypes.string,
+  onDescriptionChange: PropTypes.func,
+  onClick: PropTypes.func
 }

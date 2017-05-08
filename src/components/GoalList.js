@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import PropTypes from 'prop-types';
 
 export default class GoalList extends Component {
 
@@ -35,4 +36,8 @@ export default class GoalList extends Component {
       </div>
     )
   }
+}
+
+GoalList.propTypes = {
+  goals: PropTypes.array
 }
