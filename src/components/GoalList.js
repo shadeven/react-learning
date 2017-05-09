@@ -39,5 +39,5 @@ export default class GoalList extends Component {
 }
 
 GoalList.propTypes = {
-  goals: PropTypes.array
+  goals: PropTypes.array.isRequired
 }

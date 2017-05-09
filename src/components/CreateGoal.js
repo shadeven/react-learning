@@ -34,9 +34,9 @@ export default class CreateGoal extends Component {
 }
 
 CreateGoal.propTypes = {
-  goalName: PropTypes.string,
-  onNameChange: PropTypes.func,
-  descriptionName: PropTypes.string,
-  onDescriptionChange: PropTypes.func,
-  onClick: PropTypes.func
+  goalName: PropTypes.string.isRequired,
+  onNameChange: PropTypes.func.isRequired,
+  descriptionName: PropTypes.string.isRequired,
+  onDescriptionChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 }
