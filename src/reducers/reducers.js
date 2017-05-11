@@ -1,3 +1,5 @@
+// @flow
+
 import { combineReducers } from 'redux';
 
 const initialState = {
@@ -6,7 +8,13 @@ const initialState = {
   goals: []
 }
 
-function goals(state = initialState, action) {
+type State = {
+  name: string,
+  description: string,
+  goals: Array<Object>
+}
+
+function goals(state: State = initialState, action: Object) {
   if (action.type === 'GET_GOALS') {
     return Object.assign({}, state, { goals: state.goals });
   }

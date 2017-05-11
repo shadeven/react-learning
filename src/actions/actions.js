@@ -1,5 +1,7 @@
 
-export const GET_GOALS = 'GET_GOALS';
+// @flow
+
+export const GET_GOALS: string = 'GET_GOALS';
 
 export function getGoals() {
   return {
