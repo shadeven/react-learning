@@ -11,6 +11,10 @@ function goals(state = initialState, action) {
     return Object.assign({}, state, { goals: state.goals });
   }
 
+  if (action.type === 'ADD_GOAL') {
+    return state.goals.concat(state.goals);
+  }
+
   return initialState;
 }
 
